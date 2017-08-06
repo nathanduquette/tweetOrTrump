@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Trump or Tweet</title>
+  <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="trump-tweet.css" rel="stylesheet" type="text/css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400" rel="stylesheet">
+</head>
+<body>
+<div id="main-container">
+
+	<div id="gamePage" class="hidden">
+    <nav class="navbar navbar-default navbar-inverse" role="navigation">
+       <!-- Brand and toggle get grouped for better mobile display -->
+       <!-- Collect the nav links, forms, and other content for toggling -->
+       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+         <div class="container-fluid">
+        
+        <li>
+                 <img id="tweetImg" src="assets/tweet.png">
+                   <span class="navbar-text" id = "welcomePlayer">
+                 Welcome
+                 </span>
+             <ul class="nav navbar-nav navbar-right">
+             <button href="#myModal" id="openBtn" data-toggle="modal" class="btn btn-default center-block">Leaderboard</button>
+            <div class="modal fade" id="myModal">
+                <div class="modal-dialog">
+                     <div class="modal-content">
+                       <div class="modal-header">
+                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                             <h3 class="modal-title">Leaderboard</h3>
+                       </div>
+                       <div class="modal-body">
+                              <h5 class="text-center"></h5>
+                                 <table class="table table-striped" id="tblGrid">
+                                   <thead id="tblHead">
+                                         <tr>
+                                           <th>Name</th>
+                                           <th>Score</th>
+                                       </tr>
+                                   </thead>
+                                   <tbody></tbody>
+                                 </table>
+                 <div class="form-group">
+                  <!-- <input type="button" class="btn btn-warning btn-sm pull-right" value="Reset"> -->
+                   <div class="clearfix"></div>
+                 </div>
+                </div>
+               <div class="modal-footer">
+                 <button type="button" class="btn btn-default" data-dismiss="modal" id="closeBtn">Close</button>
+               </div>
+                        
+             </div><!-- /.modal-content -->
+           </div><!-- /.modal-dialog -->
+         </div><!-- /.modal -->
+<!--         </ul>
+ -->  </li>
+           <li class="dropdown" id="signInModal">
+             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+                <ul id="login-dp" class="dropdown-menu">
+                         <div class="row">
+                                <div class="col-lg-12">
+                                     <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                                            <div class="form-group">
+                                                 <label class="sr-only" for="exampleUser">Username</label>
+                                                 <input type="text" class="form-control" id="username" placeholder="Username" required>
+                                            </div>
+                                            <div class="form-group">
+                                                 <label class="sr-only" for="exampleInputPassword2">Password</label>
+                                                 <input type="password" class="form-control" id="password" placeholder="Password" required>
+                                                
+                                            </div>
+                                            <span id="signInError"></span>
+                                            <div class="form-group">
+                                                 <button type="submit" class="btn btn-primary btn-block" id = "signIn">Sign in</button>
+                                            </div>
+                                     </form>
+                                </div>
+                                <div class="bottom text-center">
+                                    New here? <a href="#" data-toggle="modal" data-target="#newPlayerModal"><b>Join Us</b></a>
+                                </div>
+                         </div>
+                    
+                </ul>
+           </li>
+         </ul>
+       </div><!-- /.navbar-collapse -->
+     </div><!-- /.container-fluid -->
+    </nav>
+    <div class="modal fade" id="newPlayerModal" role="dialog">
+    <div class="modal-dialog">
+    
+     <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" id="signUpTitle">Sign up to show your score on the leaderboard!</h4>
+        </div>
+        <div class="modal-body">
+            <span id="invalidUser"></span>
+            <form class="form" role="form" accept-charset="UTF-8" id="login-nav">
+                <div class="form-group">
+                     <label class="sr-only" for="firstName">First Name</label>
+                     <input type="text" class="form-control" id="newFirstName" placeholder="First Name" required = "required";>
+                </div>
+                <div class="form-group">
+                     <label class="sr-only" for="lastName">Last Name</label>
+                     <input type="text" class="form-control" id="newLastName" placeholder="Last Name" required>
+                </div>
+                <div class="form-group">
+                     <label class="sr-only" for="exampleInputPassword2">Username</label>
+                     <input type="text" class="form-control" id="newUsername" placeholder="Username" required>
+                </div>
+                <div class="form-group">
+                     <label class="sr-only" for="exampleInputPassword2">Password</label>
+                     <input type="password" class="form-control" id="newPassword" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-default" id = "newPlayerSignUp" value= "Submit">
+                </div>
+             </form>
+       </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" id = "close">Close</button>
+          
+       </div>
+      </div>
+      
+   </div>
+  </div>
+
+		<div id="instructions">
+				<div id="textInHeader">
+					<h1>Trump or Tweet</h1>
+					<h4>Did Donald Trump tweet it or did he say this  out loud – or is it made up?</h4>
+					<!-- <h4 id="gameInsturctions">When a quote appears, take your guess! There is 20 quotes and each quote will load after each guess. You only have 10 seconds for each question</h4> -->
+
+					<button type="button" class="actionBtn" id="generate">Start Game</button>
+
+					<h3 class="hiddenText">Timer: <span id="time-left">00:15</span> | Current Percentage: <span id="percentage">0%</span></h3>
+
+					<div id="bottomBox">
+						  <button type="button" class="actionBtn hiddenBtn" id= "quoteBtn">Quote</button>
+						  <button type="button" class="actionBtn hiddenBtn" id= "tweet">Tweet</button>
+						  <button type="button" class="actionBtn hiddenBtn" id= "fake">Fake News</button>
+					</div>	
+				</div>	
+		</div>	
+
+		<div class="container">
+			<div class="row" id="colorBox">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				  <div class="panel-body" id="quote">
+				  	<div id="quoteOne">
+						<img src="assets/quotation.png" alt="quotation mark" id="mark1">
+					</div>	
+
+					<div id="correctAnswer"></div>
+
+					<div id="gif-container"></div>
+
+
+					<div id="quoteHere">
+					</div>
+
+					<div id="quoteTwo">
+						<img src="assets/quotation.png" alt="quotation mark" id="mark2" >
+					</div>	
+			
+				  </div>
+				</div>
+				<div id="loadingDiv"></div>
+        </div>	
+		</div> 
+
+
+
+	</div>
+
+	<footer>
+	</footer>
+</div>
+
+
+	<div id="introPage">
+		<h3 id="info">Donald Trump has a lot of <em>interesting</em> things to say. Especially on Twitter. Can you tell whether he said it out loud, on Twitter...  or if it's made up?</h3>
+		<button id="goToGamePage">Let's Play</button>
+	</div>
+</div>
+ <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src = "trumptweets.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
+
+
+
+</body>
+</html>
